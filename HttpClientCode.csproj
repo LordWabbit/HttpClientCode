@@ -82,6 +82,14 @@
   &lt;ParameterStorage /&gt;
 &lt;/ArrayOfParameterStorage&gt;</Parameters>
     </None>
+    <None Include="ReadMe.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="images\httpclientcode.png" />
+    <Content Include="images\httpclientcodeformget.png" />
+    <Content Include="images\httpclientcodeformheadersget.png" />
+    <Content Include="images\httpclientcodeformpost.png" />
+    <Content Include="images\httpclientcodelinqpad.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

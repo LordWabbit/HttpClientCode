@@ -1,13 +1,14 @@
-﻿using Fiddler;
-using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Net;
-using System.Web;
-using System.Windows.Forms;
-
+﻿// originale code: https://github.com/sunilpottumuttu/FiddlerGenerateHttpClientCode
 namespace HttpClientCode
 {
+    using Fiddler;
+    using System;
+    using System.Collections.Generic;
+    using System.Collections.Specialized;
+    using System.Net;
+    using System.Web;
+    using System.Windows.Forms;
+
     public class BootStrap: IHandleExecAction, IFiddlerExtension
     {
 
@@ -89,8 +90,8 @@ namespace HttpClientCode
             template.Session = new Dictionary<string, object>();
             
             
-            template.Session.Add("scheme", this.__selectedSession.isHTTPS ? "https" : "http");
-            template.Session.Add("host", this.__selectedSession.host);
+            template.Session.Add("uri", (this.__selectedSession.isHTTPS ? "https" : "http") + "://" + this.__selectedSession.host + this.__selectedSession.PathAndQuery);
+            //template.Session.Add("host", this.__selectedSession.host);
             template.Session.Add("httpmethod", this.__selectedSession.RequestMethod);
             
             
@@ -113,13 +114,13 @@ namespace HttpClientCode
 
             
             string queryString = null;
-            string path = this.__selectedSession.PathAndQuery;
+            //string path = this.__selectedSession.PathAndQuery;
             if (this.__selectedSession.RequestMethod.ToUpperInvariant() == WebRequestMethods.Http.Post)
             {
                 queryString = this.__selectedSession.GetRequestBodyAsString();
             }
 
-            template.Session.Add("uri", path);
+            //template.Session.Add("uri", path);
 
             var bodies = new Dictionary<string, string>();
 

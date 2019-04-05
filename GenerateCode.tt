@@ -1,12 +1,10 @@
 ﻿<#@ template language="C#" #>
 <#@ import namespace="Fiddler"#>
-<#@ parameter type="System.String" name="scheme"  #>
-<#@ parameter type="System.String" name="host"  #>
 <#@ parameter type="System.String" name="uri"  #>
 <#@ parameter type="System.String" name="httpmethod"  #>
 <#@ parameter type="System.Collections.Generic.Dictionary<string,string>" name="headers" #>
 <#@ parameter type="System.Collections.Generic.Dictionary<string,string>" name="bodies" #>
-var uriBuilder = new UriBuilder("<# Write(scheme); #>","<# Write(host); #>",-1,"<# Write(uri); #>");
+var uriBuilder = new UriBuilder("<# Write(uri); #>");
 var httpClient = new HttpClient();
 <#
 if(httpmethod.ToUpper()=="GET")

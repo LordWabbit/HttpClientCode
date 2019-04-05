@@ -16,7 +16,7 @@ namespace HttpClientCode
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Temp\Scratch\FiddlerGenerateHttpClientCode-master\HttpClientCode\GenerateCode.tt"
+    #line 1 "C:\Lavori\StudioAT\Utilities\HttpClientCode\GenerateCode.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class GenerateCode : GenerateCodeBase
     {
@@ -28,28 +28,14 @@ namespace HttpClientCode
         {
             this.Write("var uriBuilder = new UriBuilder(\"");
             
-            #line 9 "C:\Temp\Scratch\FiddlerGenerateHttpClientCode-master\HttpClientCode\GenerateCode.tt"
- Write(scheme); 
-            
-            #line default
-            #line hidden
-            this.Write("\",\"");
-            
-            #line 9 "C:\Temp\Scratch\FiddlerGenerateHttpClientCode-master\HttpClientCode\GenerateCode.tt"
- Write(host); 
-            
-            #line default
-            #line hidden
-            this.Write("\",-1,\"");
-            
-            #line 9 "C:\Temp\Scratch\FiddlerGenerateHttpClientCode-master\HttpClientCode\GenerateCode.tt"
+            #line 7 "C:\Lavori\StudioAT\Utilities\HttpClientCode\GenerateCode.tt"
  Write(uri); 
             
             #line default
             #line hidden
             this.Write("\");\r\nvar httpClient = new HttpClient();\r\n");
             
-            #line 11 "C:\Temp\Scratch\FiddlerGenerateHttpClientCode-master\HttpClientCode\GenerateCode.tt"
+            #line 9 "C:\Lavori\StudioAT\Utilities\HttpClientCode\GenerateCode.tt"
 
 if(httpmethod.ToUpper()=="GET")
 {
@@ -60,7 +46,7 @@ if(httpmethod.ToUpper()=="GET")
             this.Write("var httpRequestMessage = new HttpRequestMessage(HttpMethod.Get, uriBuilder.ToStri" +
                     "ng());\r\n");
             
-            #line 16 "C:\Temp\Scratch\FiddlerGenerateHttpClientCode-master\HttpClientCode\GenerateCode.tt"
+            #line 14 "C:\Lavori\StudioAT\Utilities\HttpClientCode\GenerateCode.tt"
  
 } 
 
@@ -68,7 +54,7 @@ if(httpmethod.ToUpper()=="GET")
             #line default
             #line hidden
             
-            #line 19 "C:\Temp\Scratch\FiddlerGenerateHttpClientCode-master\HttpClientCode\GenerateCode.tt"
+            #line 17 "C:\Lavori\StudioAT\Utilities\HttpClientCode\GenerateCode.tt"
 
 if(httpmethod.ToUpper()=="POST")
 {
@@ -79,7 +65,7 @@ if(httpmethod.ToUpper()=="POST")
             this.Write("var httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, uriBuilder.ToStr" +
                     "ing());\r\n");
             
-            #line 24 "C:\Temp\Scratch\FiddlerGenerateHttpClientCode-master\HttpClientCode\GenerateCode.tt"
+            #line 22 "C:\Lavori\StudioAT\Utilities\HttpClientCode\GenerateCode.tt"
  
 } 
 
@@ -87,7 +73,7 @@ if(httpmethod.ToUpper()=="POST")
             #line default
             #line hidden
             
-            #line 27 "C:\Temp\Scratch\FiddlerGenerateHttpClientCode-master\HttpClientCode\GenerateCode.tt"
+            #line 25 "C:\Lavori\StudioAT\Utilities\HttpClientCode\GenerateCode.tt"
 
 foreach (var item in headers)
 {
@@ -97,21 +83,21 @@ foreach (var item in headers)
             #line hidden
             this.Write("httpRequestMessage.Headers.Add(\"");
             
-            #line 31 "C:\Temp\Scratch\FiddlerGenerateHttpClientCode-master\HttpClientCode\GenerateCode.tt"
+            #line 29 "C:\Lavori\StudioAT\Utilities\HttpClientCode\GenerateCode.tt"
  Write(item.Key.ToString()); 
             
             #line default
             #line hidden
             this.Write("\",\"");
             
-            #line 31 "C:\Temp\Scratch\FiddlerGenerateHttpClientCode-master\HttpClientCode\GenerateCode.tt"
+            #line 29 "C:\Lavori\StudioAT\Utilities\HttpClientCode\GenerateCode.tt"
  Write(item.Value.ToString()); 
             
             #line default
             #line hidden
             this.Write("\");\r\n");
             
-            #line 32 "C:\Temp\Scratch\FiddlerGenerateHttpClientCode-master\HttpClientCode\GenerateCode.tt"
+            #line 30 "C:\Lavori\StudioAT\Utilities\HttpClientCode\GenerateCode.tt"
 
 }
 
@@ -119,7 +105,7 @@ foreach (var item in headers)
             #line default
             #line hidden
             
-            #line 35 "C:\Temp\Scratch\FiddlerGenerateHttpClientCode-master\HttpClientCode\GenerateCode.tt"
+            #line 33 "C:\Lavori\StudioAT\Utilities\HttpClientCode\GenerateCode.tt"
 
 if(bodies.Count > 0)
 {
@@ -129,7 +115,7 @@ if(bodies.Count > 0)
             #line hidden
             this.Write("var values = new Dictionary<string, string>();\r\n");
             
-            #line 40 "C:\Temp\Scratch\FiddlerGenerateHttpClientCode-master\HttpClientCode\GenerateCode.tt"
+            #line 38 "C:\Lavori\StudioAT\Utilities\HttpClientCode\GenerateCode.tt"
 
 foreach (var item in bodies)
 {
@@ -139,21 +125,21 @@ foreach (var item in bodies)
             #line hidden
             this.Write("values.Add(\"");
             
-            #line 44 "C:\Temp\Scratch\FiddlerGenerateHttpClientCode-master\HttpClientCode\GenerateCode.tt"
+            #line 42 "C:\Lavori\StudioAT\Utilities\HttpClientCode\GenerateCode.tt"
  Write(item.Key.ToString()); 
             
             #line default
             #line hidden
             this.Write("\",\"");
             
-            #line 44 "C:\Temp\Scratch\FiddlerGenerateHttpClientCode-master\HttpClientCode\GenerateCode.tt"
+            #line 42 "C:\Lavori\StudioAT\Utilities\HttpClientCode\GenerateCode.tt"
  Write(item.Value.ToString()); 
             
             #line default
             #line hidden
             this.Write("\");\r\n");
             
-            #line 45 "C:\Temp\Scratch\FiddlerGenerateHttpClientCode-master\HttpClientCode\GenerateCode.tt"
+            #line 43 "C:\Lavori\StudioAT\Utilities\HttpClientCode\GenerateCode.tt"
 
 }
 
@@ -163,7 +149,7 @@ foreach (var item in bodies)
             this.Write("var content = new FormUrlEncodedContent(values);\r\nhttpRequestMessage.Content = co" +
                     "ntent;\r\n");
             
-            #line 50 "C:\Temp\Scratch\FiddlerGenerateHttpClientCode-master\HttpClientCode\GenerateCode.tt"
+            #line 48 "C:\Lavori\StudioAT\Utilities\HttpClientCode\GenerateCode.tt"
  
 }	
 
@@ -176,33 +162,7 @@ foreach (var item in bodies)
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 1 "C:\Temp\Scratch\FiddlerGenerateHttpClientCode-master\HttpClientCode\GenerateCode.tt"
-
-private string _schemeField;
-
-/// <summary>
-/// Access the scheme parameter of the template.
-/// </summary>
-private string scheme
-{
-    get
-    {
-        return this._schemeField;
-    }
-}
-
-private string _hostField;
-
-/// <summary>
-/// Access the host parameter of the template.
-/// </summary>
-private string host
-{
-    get
-    {
-        return this._hostField;
-    }
-}
+        #line 1 "C:\Lavori\StudioAT\Utilities\HttpClientCode\GenerateCode.tt"
 
 private string _uriField;
 
@@ -264,34 +224,6 @@ public virtual void Initialize()
 {
     if ((this.Errors.HasErrors == false))
     {
-bool schemeValueAcquired = false;
-if (this.Session.ContainsKey("scheme"))
-{
-    this._schemeField = ((string)(this.Session["scheme"]));
-    schemeValueAcquired = true;
-}
-if ((schemeValueAcquired == false))
-{
-    object data = global::System.Runtime.Remoting.Messaging.CallContext.LogicalGetData("scheme");
-    if ((data != null))
-    {
-        this._schemeField = ((string)(data));
-    }
-}
-bool hostValueAcquired = false;
-if (this.Session.ContainsKey("host"))
-{
-    this._hostField = ((string)(this.Session["host"]));
-    hostValueAcquired = true;
-}
-if ((hostValueAcquired == false))
-{
-    object data = global::System.Runtime.Remoting.Messaging.CallContext.LogicalGetData("host");
-    if ((data != null))
-    {
-        this._hostField = ((string)(data));
-    }
-}
 bool uriValueAcquired = false;
 if (this.Session.ContainsKey("uri"))
 {
