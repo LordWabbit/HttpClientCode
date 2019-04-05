@@ -14,7 +14,7 @@ Select the request</br>
 Select <b>Http Client Code</b> from context menu
 ![Httpclientcode](images/httpclientcode.png)
 
-Click <b>Generate Code</b>
+Click <b>Generate Code</b></br>
 Here you can see sample GET from rest service arcgis
 ![Httpclientcodeform](images/httpclientcodeformget.png)
 
@@ -26,9 +26,8 @@ Here you can see sample POST from rest service arcgis
 
 ![Httpclientcodeformpost](images/httpclientcodeformpost.png)
 
-Click button <b>Copy to Clipboard</b>
-
-Paste from Clipboard and test with LinPad
+Click button <b>Copy to Clipboard</b></br>
+Paste from Clipboard and test with LinqPad
 
 ![Httpclientcodelinqpad](images/httpclientcodelinqpad.png)
 
