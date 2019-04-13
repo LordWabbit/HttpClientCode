@@ -18,7 +18,7 @@ Click <b>Generate Code</b></br>
 Here you can see sample GET from rest service arcgis
 ![Httpclientcodeform](images/httpclientcodeformget.png)
 
-If you need headers you can checked <b>Add headers</b>
+If you need headers you can check <b>Add headers</b>
 
 ![Httpclientcodeformheaders](images/httpclientcodeformheadersget.png)
 
