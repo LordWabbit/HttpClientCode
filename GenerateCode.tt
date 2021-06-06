@@ -1,52 +1,45 @@
 ﻿<#@ template language="C#" #>
 <#@ import namespace="Fiddler"#>
 <#@ parameter type="System.String" name="uri"  #>
+<#@ parameter type="System.String" name="host"  #>
 <#@ parameter type="System.String" name="httpmethod"  #>
+<#@ parameter type="System.String" name="bodycontent"  #>
+<#@ parameter type="System.String" name="encodingtypename"  #>
+<#@ parameter type="System.String" name="contenttypename"  #>
 <#@ parameter type="System.Collections.Generic.Dictionary<string,string>" name="headers" #>
-<#@ parameter type="System.Collections.Generic.Dictionary<string,string>" name="bodies" #>
-var uriBuilder = new UriBuilder("<# Write(uri); #>");
-var httpClient = new HttpClient();
+
+var httpHandler = new HttpClientHandler();
+httpHandler.UseCookies = false;
+httpHandler.AutomaticDecompression = System.Net.DecompressionMethods.GZip | System.Net.DecompressionMethods.Deflate;
+var httpClient = new HttpClient(httpHandler);
 <#
-if(httpmethod.ToUpper()=="GET")
-{
-#>
-var httpRequestMessage = new HttpRequestMessage(HttpMethod.Get, uriBuilder.ToString());
+	if(httpmethod.ToUpper()=="GET")
+    {
+#>var httpRequestMessage = new HttpRequestMessage(HttpMethod.Get, "<# Write(uri); #>");
 <# 
-} 
+	} 
 #>
 <#
-if(httpmethod.ToUpper()=="POST")
-{
-#>
-var httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, uriBuilder.ToString());
+	if(httpmethod.ToUpper()=="POST")
+    {
+#>var httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, "<# Write(uri); #>");
 <# 
-} 
+	} 
 #>
 <#
-foreach (var item in headers)
+    foreach (var item in headers)
+    {
+#>httpRequestMessage.Headers.Add("<# Write(item.Key.ToString()); #>","<# Write(item.Value.ToString()); #>");
+<#
+    }
+#>
+<#
+if(string.IsNullOrEmpty(bodycontent) == false)
 {
 #>
-httpRequestMessage.Headers.Add("<# Write(item.Key.ToString()); #>","<# Write(item.Value.ToString()); #>");
+httpRequestMessage.Content = new StringContent("<# Write(bodycontent); #>", <# Write(encodingtypename); #>, "<# Write(contenttypename); #>");
 <#
 }
-#>
-<#
-if(bodies.Count > 0)
-{
-#>
-var values = new Dictionary<string, string>();
-<#
-foreach (var item in bodies)
-{
-#>
-values.Add("<# Write(item.Key.ToString()); #>","<# Write(item.Value.ToString()); #>");
-<#
-}
-#>
-var content = new FormUrlEncodedContent(values);
-httpRequestMessage.Content = content;
-<# 
-}	
 #>
 var httpResponseMessage = httpClient.SendAsync(httpRequestMessage).Result;
 var httpContent = httpResponseMessage.Content;

@@ -30,7 +30,7 @@
         {
             this.rtbCode = new System.Windows.Forms.RichTextBox();
             this.btnCopyToClipBoard = new System.Windows.Forms.Button();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.lblDevelopedBy = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // rtbCode
@@ -51,30 +51,31 @@
             this.btnCopyToClipBoard.UseVisualStyleBackColor = true;
             this.btnCopyToClipBoard.Click += new System.EventHandler(this.btnCopyToClipBoard_Click);
             // 
-            // linkLabel1
+            // lblDevelopedBy
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(13, 385);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(40, 13);
-            this.linkLabel1.TabIndex = 2;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "nicogis";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.lblDevelopedBy.AutoSize = true;
+            this.lblDevelopedBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDevelopedBy.Location = new System.Drawing.Point(12, 385);
+            this.lblDevelopedBy.Name = "lblDevelopedBy";
+            this.lblDevelopedBy.Size = new System.Drawing.Size(187, 13);
+            this.lblDevelopedBy.TabIndex = 2;
+            this.lblDevelopedBy.Text = "Developed By:-Sunil Pottumuttu";
             // 
             // FrmGenerateHttpClientCode
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(842, 419);
-            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.lblDevelopedBy);
             this.Controls.Add(this.btnCopyToClipBoard);
             this.Controls.Add(this.rtbCode);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmGenerateHttpClientCode";
             this.Text = "C# HttpClient Code";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmGenerateHttpClientCode_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -84,6 +85,6 @@
 
         private System.Windows.Forms.RichTextBox rtbCode;
         private System.Windows.Forms.Button btnCopyToClipBoard;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Label lblDevelopedBy;
     }
 }

@@ -1,5 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
 using System.Windows.Forms;
+using Fiddler;
 
 namespace HttpClientCode
 {
@@ -9,7 +16,7 @@ namespace HttpClientCode
 
         public FrmGenerateHttpClientCode()
         {
-            InitializeComponent();
+            InitializeComponent();               
         }
 
         public void SetText(string text)
@@ -25,9 +32,12 @@ namespace HttpClientCode
             MessageBox.Show("Text Copied to ClipBoard", this.MESSAGEBOXTEXT, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void FrmGenerateHttpClientCode_KeyDown(object sender, KeyEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://nicogis.blogspot.com");
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
         }
     }
 }
